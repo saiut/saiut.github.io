@@ -21,6 +21,8 @@ twitter_username: saiut
 github_username: saiut
 minimal_mistakes_skin: contrast
 search: true
+date_format: "%Y-%m-%d" #add by saiut
+locale: "ja-JP" #add by saiut
 
 # Build settings
 markdown: kramdown
