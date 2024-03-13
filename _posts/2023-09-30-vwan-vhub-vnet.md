@@ -1,8 +1,10 @@
 ---
-layout: posts
 title:  "Virtual WAN で仮想ハブが相互接続されているときの VNet の動作"
 date:   2023-09-29 14:34:25
 categories: Network
+tags:
+  - VWAN
+  - VNet
 image: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
 ---
 
