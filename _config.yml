@@ -95,11 +95,14 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: false # change by saiut
-      comments: true
+      read_time: false #change by saiut
+      comments: false #change by saiut
       share: true
       related: true
       classes: wide #add by saiut
+      toc: true #add by saiut
+      toc_label: "目次" #add by saiut
+      show_date: true #add by saiut
   # _pages
   - scope:
       path: "_pages"
