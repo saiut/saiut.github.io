@@ -1,0 +1,11 @@
+---
+layout: posts
+title:  "Application Gateway の TCP プロトコルサポートを試してみる（プレビュー）"
+date:   2024-04-22 14:34:25
+categories: Network
+---
+
+# TL;DR
+
+* Application Gateway が TLS, TCP プロトコルをプレビューでサポート
+* 現状の Azure Load Balancer との比較もしています

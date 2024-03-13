@@ -13,15 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
+title: saiut.github.io
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
+  "Azure で検証したことをまとめています"
+twitter_username: saiut
+github_username: saiut
+minimal_mistakes_skin: contrast
 search: true
 
 # Build settings
@@ -58,9 +56,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name   : "Suguru Ito"
+  avatar : "/assets/images/suito.jpg"
+  bio    : "Azure で検証したことをまとめています"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -113,3 +111,10 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+# Analytics
+analytics:
+  provider               : google # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : G-PYG2WDCWCN
+    anonymize_ip         : # true, false (default)
