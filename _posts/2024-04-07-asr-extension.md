@@ -1,6 +1,6 @@
 ---
 title:  "Azure Site Recovery でフェールオーバーしたときは VM 拡張機能 に気を付ける"
-date:   2023-10-05 14:34:25
+date:   2024-04-07 14:34:25
 categories: DR
 author_profile: false
 tags:
