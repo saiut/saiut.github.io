@@ -1,8 +1,17 @@
 ---
 permalink: /about/
 title: "About"
+toc: false
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+# saiut.github.io
+========
+* Microsoft にて　Cloud Solution Architect として、エンタープライズ領域のお客様に Azure インフラ領域のアーキテクチャ設計や運用の支援をしています。
+* 詳細については [LinkedIn](https://www.linkedin.com/in/suito/) をご参照ください。
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+# 免責事項
+========
+* 個人ブログですので、このブログに記載されている見解や意見などは個人的なものであり、所属組織の見解や意見を表明するものではありません。
+* 文章やリンク先などを含む内容については記事作成時点のものですので、予告なく変更される場合があります。
+* このブログでは情報提供のみを目的としています。あくまで自身の検証をまとめた結果となるため、その内容についての正確性や安全性、最新性などについては一切保証しません。
+* 本サイトの記事を利用した場合の損害や不利益についてはいかなる責任も負いませんので、あらかじめご了承ください。

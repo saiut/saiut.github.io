@@ -1,27 +1,11 @@
-# Minimal Mistakes remote theme starter
+# saiut.github.io
+========
+* Microsoft にて　Cloud Solution Architect として、エンタープライズ領域のお客様に Azure インフラ領域のアーキテクチャ設計や運用の支援をしています。
+* 詳細については [LinkedIn](https://www.linkedin.com/in/suito/) をご参照ください。
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
-
-Contains basic configuration to get you a site with:
-
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
-
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
-
----
-
-## Troubleshooting
-
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
-
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+# 免責事項
+========
+* 個人ブログですので、このブログに記載されている見解や意見などは個人的なものであり、所属組織の見解や意見を表明するものではありません。
+* 文章やリンク先などを含む内容については記事作成時点のものですので、予告なく変更される場合があります。
+* このブログでは情報提供のみを目的としています。あくまで自身の検証をまとめた結果となるため、その内容についての正確性や安全性、最新性などについては一切保証しません。
+* 本サイトの記事を利用した場合の損害や不利益についてはいかなる責任も負いませんので、あらかじめご了承ください。
