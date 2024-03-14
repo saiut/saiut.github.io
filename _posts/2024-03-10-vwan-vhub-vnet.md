@@ -5,7 +5,8 @@ categories: Network
 tags:
   - VWAN
   - VNet
-image: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
+sidebar:
+  - image: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
 ---
 
 # TL;DR
