@@ -1,7 +1,8 @@
 ---
 title:  "Azure VM のゲスト OS 上のパフォーマンスカウンターを気軽に取ってみる"
-date:   2023-10-05 14:34:25
+date:   2024-03-25 14:34:25
 categories: DR
+author_profile: false
 tags:
   - AMA
   - "メトリック"
