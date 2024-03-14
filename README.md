@@ -1,5 +1,6 @@
 # saiut.github.io
 ========
+* Azure で検証したことや、そこでつまづいたことなどをまとめていきます。
 * Microsoft にて　Cloud Solution Architect として、エンタープライズ領域のお客様に Azure インフラ領域のアーキテクチャ設計や運用の支援をしています。
 * 詳細については [LinkedIn](https://www.linkedin.com/in/suito/) をご参照ください。
 
