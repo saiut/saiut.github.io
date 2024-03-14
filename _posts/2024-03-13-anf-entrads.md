@@ -10,7 +10,7 @@ tags:
 
 # TL;DR
 
-* Azure NetApp Files を Mirosoft Entra Domain Services に参加させるときにハマったことをまとめました
+* ANF を SMB 接続する際にいきなりエラーになります
 * Microsoft Entra Domain Services の設定を行うユーザーにも注意
 
 # Architecture
