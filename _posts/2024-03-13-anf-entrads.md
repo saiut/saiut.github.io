@@ -1,5 +1,5 @@
 ---
-title:  "Microsoft Entra Domain Service に Azure NetApp Files を接続するときにハマったこと"
+title:  "Microsoft Entra Domain Services に Azure NetApp Files を接続するときにハマったこと"
 date:   2024-03-13 14:34:25
 categories: Storage
 author_profile: false
