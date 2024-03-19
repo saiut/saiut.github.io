@@ -1,6 +1,6 @@
 ---
 title:  "Azure VM のゲスト OS 上のパフォーマンスカウンターを気軽に取ってみる"
-date:   2024-03-19 14:34:25
+date:   2024-03-19 05:34:25
 categories: Monitor
 author_profile: false
 tags:
