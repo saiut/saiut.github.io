@@ -8,12 +8,12 @@ tags:
   - "メトリック"
 ---
 
-# TL;DR
+## TL;DR
 
 * データ収集ルールを使えば簡単に Azure VM 上のゲストメトリックが取得可能
 * メトリックを Log Analytics Workspace に入れるまでもないときに活用
 
-# カスタムメトリックの取得
+## カスタムメトリックの取得
 
 Azure VM では、仮想マシンの基盤から VM のメトリックを自動で取得してくれます。
 
@@ -27,7 +27,7 @@ DCR を活用すれば簡単に取得することが可能です。
 
 ----
 
-# DCR からゲスト OS のメトリックを取得する
+## DCR からゲスト OS のメトリックを取得する
 
 Azure Monitor の DCR を活用することで、DCR で設定した収集するデータ、データを収集する VM、送信先を簡単に管理することが可能です。
 
@@ -46,16 +46,15 @@ Azure Monitor の DCR を活用することで、DCR で設定した収集する
 カスタムにすることで、細かく取得が可能になります。
 ![DCR Resource Custom](/assets/article_images/2024-03-19-ama-custom-metric/dcr-performancecounter-custom.png)
 
-
-
-# パフォーマンスカウンターは _total しかデフォルトでとれないので各プロセスのカウンターを取得する
+## パフォーマンスカウンターは _total しかデフォルトでとれないので各プロセスのカウンターを取得する
 
 カスタムで取得できるのは基本的にそれぞれのパフォーマンスで「_total」や「*」といった、全プロセスなどを足し合わせたものを取得するので、
 例えば特定プロセスの CPU 使用率を取得したい場合はパフォーマンスカウンターを追加してあげる必要があります。
 
-```
+```text
 \Process(プロセス名)\ % Processor Time
 ```
+
 取得したいプロセス名を全部いれる必要があるので手間ではありますが。。。
 
 ![DCR Add Performance](/assets/article_images/2024-03-19-ama-custom-metric/dcr-add-performance.png)
@@ -66,6 +65,6 @@ Azure Monitor の DCR を活用することで、DCR で設定した収集する
 
 ![Custom Metric](/assets/article_images/2024-03-19-ama-custom-metric/custommetric.png)
 
-# Appendix
+## Appendix
 
 [Azure Monitor のカスタム メトリック (プレビュー)](https://learn.microsoft.com/ja-jp/azure/azure-monitor/essentials/metrics-custom-overview)
