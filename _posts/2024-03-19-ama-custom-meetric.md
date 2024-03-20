@@ -60,7 +60,6 @@ Azure Monitor の DCR を活用することで、DCR で設定した収集する
 
 ![DCR Add Performance](/assets/article_images/2024-03-19-ama-custom-metric/dcr-add-performance.png)
 
-
 設定してあげることで、VM のメトリック名前空間に「仮想マシンのゲスト」が追加され、そこから DCR で設定したパフォーマンスカウンターのメトリックを確認することが可能です。
 
 こちらの例では、Azure の拡張機能である Network Watcher Agent のスレッド数を取得しています。
