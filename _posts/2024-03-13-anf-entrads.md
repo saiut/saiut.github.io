@@ -8,12 +8,12 @@ tags:
   - EntraDS
 ---
 
-# TL;DR
+## TL;DR
 
 * ANF を SMB 接続する際にいきなりエラーになります
 * Microsoft Entra Domain Services の設定を行うユーザーにも注意
 
-# Architecture
+## Architecture
 
 アーキテクチャはこのような構成図になります。
 ![Architecture](/assets/article_images/2024-02-15-anf-entrads/architecture.png)
@@ -32,7 +32,7 @@ ANF のテナントと Entra Domain Services のテナントを分けていま�
 
 [Azure NetApp Files](https://learn.microsoft.com/ja-jp/azure/azure-netapp-files/azure-netapp-files-introduction)
 
-# ハマったこと
+## ハマったこと
 
 Entra Domain Service は簡単にいうと「マネージドの Active Directory Domain Services」ですが、
 マネージドなので ADDS とは異なる部分があります。
@@ -50,7 +50,7 @@ ANF を SMB で利用したい場合には、ANF を ADDS に所属する必要�
 
 その AD 接続を行った際に、Entra Domain Services ならではのハマったことがあったので、そちらを下記にいくつか記載します。
 
-## Entra Domain Service の ADDS/DNS を見たい場合は AAD DC Administrators に所属しているユーザーでログイン
+### Entra Domain Service の ADDS/DNS を見たい場合は AAD DC Administrators に所属しているユーザーでログイン
 
 そもそも ANF をマウントする前に、Entra Domain Services の ADDS/DNS 機能を設定するには、Azure ポータルなどからは出来ず、別途 Entra Domain Services に接続できる VM などを構築する必要があります。
 
@@ -63,11 +63,11 @@ Entra ID でユーザーを作成してあげるか、ADDS で同期されてき
 対象のユーザーで VM に対してログインし、 VM に ADDS のツールや DNS のツールをインストールして設定してあげましょう。
 ちなみに DNS ツールを利用する際は、Entra ID に割り当てられた IP アドレスではなく、FQDN を利用しないといけないことに注意です。
 
-## PTR レコードを Entra DS 環境の DNS に入れる
+### PTR レコードを Entra DS 環境の DNS に入れる
 
 ADDS 接続を作成し、SMB ボリュームを作成する際、以下のエラーが発生しました。
 
-```
+```text
 >Failed to create the Active Directory machine account \"SMB-ANF-VOL. Reason: LDAP Error: Local error occurred Details: Error: Machine account creation procedure failed. [nnn] Loaded the preliminary configuration. [nnn] Successfully connected to ip 10.x.x.x, port 88 using TCP [nnn] Successfully connected to ip 10.x.x.x, port 389 using [nnn] Entry for host-address: 10.x.x.x not found in the current source: FILES. Ignoring and trying next available source [nnn] Source: DNS unavailable. Entry for host-address:10.x.x.x found in any of the available sources\n*[nnn] FAILURE: Unable to SASL bind to LDAP server using GSSAPI: local error [nnn] Additional info: SASL(-1): generic failure: GSSAPI Error: Unspecified GSS failure. Minor code may provide more information (Cannot determine realm for numeric host address) [nnn] Unable to connect to LDAP (Active Directory) service on contoso.com (Error: Local error) [nnn] Unable to make a connection (LDAP (Active Directory):contosa.com, result: 7643.
 ```
 
@@ -75,7 +75,7 @@ ADDS 接続を作成し、SMB ボリュームを作成する際、以下のエ�
 あくまで検証環境なので、ADDS 環境はユーザーを作成したりするぐらいで、あまりいじっていなかったのが1つ原因かもしれません。
 このエラーが発生した際は、 Entra Domain Services の DNS に AD サーバーの PTR レコードを登録してあげましょう。
 
-## OU の指定が AADDC Computers
+### OU の指定が AADDC Computers
 
 ![ADDS接続](/assets/article_images/2024-02-15-anf-entrads/connect-adds.png)
 
@@ -85,30 +85,30 @@ AD 接続設定時、「組織単位のパス」を入れます。
 
 エラーとしてはこんな感じに出てしまいます。
 
-```
+```json
 {
-	"code": "DeploymentFailed",
-	"message": "At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.",
-	"details": [
-		{
-			"code": "InternalServerError",
-			"message": "Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-D9A2\". Reason: SecD Error: ou not found Details: Error: Machine account creation procedure failed\n [ 561] Loaded the preliminary configuration.\n [ 665] Successfully connected to ip 10.x.x.x, port 88 using TCP\n [ 1039] Successfully connected to ip 10.x.x.x, port 389 using TCP\n**[ 1147] FAILURE: Specifed OU 'OU=AADDC Com' does not exist in\n** contoso.com\n. "
-		}
-	]
+ "code": "DeploymentFailed",
+ "message": "At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.",
+ "details": [
+  {
+   "code": "InternalServerError",
+   "message": "Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-D9A2\". Reason: SecD Error: ou not found Details: Error: Machine account creation procedure failed\n [ 561] Loaded the preliminary configuration.\n [ 665] Successfully connected to ip 10.x.x.x, port 88 using TCP\n [ 1039] Successfully connected to ip 10.x.x.x, port 389 using TCP\n**[ 1147] FAILURE: Specifed OU 'OU=AADDC Com' does not exist in\n** contoso.com\n. "
+  }
+ ]
 }
 ```
 
-## AES 暗号化がされていない
+### AES 暗号化がされていない
 
 Entra DS では、Kerberos RC4 暗号化が利用できますが、既定では無効化されています。
 特に設定をしていない場合、ANF の AD 接続時にAES 暗号化にチェックを入れておく必要があります。
 以下のようなエラーが発生します。
 
-```
+```text
 Failed to create the Active Directory machine account \"SMB-ANF-VOL\". Reason: Kerberos Error: KDC has no support for encryption type Details: Error: Machine account creation procedure failed [nnn]Loaded the preliminary configuration. [nnn]Successfully connected to ip 10.x.x.x, port 88 using TCP [nnn]FAILURE: Could not authenticate as 'contosa.com': KDC has no support for encryption type (KRB5KDC_ERR_ETYPE_NOSUPP)
 ```
 
-# まとめ
+## まとめ
 
 今まで紹介したことが特に設定していない Entra DS に対して ANF の AD 接続を行う際にハマったことです。
 
@@ -116,6 +116,6 @@ Failed to create the Active Directory machine account \"SMB-ANF-VOL\". Reason: K
 ボリューム作成時に「あれ？？」となるエラーになります。
 なので、事前に上記のようなエラーとなりそうなものに対処してからボリューム接続に臨みましょう。
 
-# Appendix
+## Appendix
 
 [Azure NetApp Files のボリュームに関するエラーをトラブルシューティングする](https://learn.microsoft.com/ja-jp/azure/azure-netapp-files/troubleshoot-volumes)
