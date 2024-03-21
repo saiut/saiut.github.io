@@ -45,7 +45,7 @@ VM をデプロイし、AMA でログを取得した場合、VM の拡張機能�
 ![フェールオーバー後](/assets/article_images/2023-10-07-asr-extension/vmextension_afterfailover.jpg)
 
 一応コマンドで確認すると…
-`
+```
  Type                : Microsoft.Azure.Monitor.AzureMonitorWindowsAgent
     TypeHandlerVersion  : 1.20.0.0
     Status              :
@@ -54,7 +54,7 @@ VM をデプロイし、AMA でログを取得した場合、VM の拡張機能�
       DisplayStatus     : Unresponsive
       Message           : Handler Microsoft.Azure.Monitor.AzureMonitorWindowsAgent of version 1.20.0.0 is unresponsive. Last
 heartbeat: 10/6/2023 5:50:06 AM
-`
+```
 
 「Unresponsive」と書かれていて、AMA の反応がないことがわかります。
 この場合、AMA でログ取得するデータ収集ルールにおいても、フェールオーバーを行った VM を選択できません。
@@ -62,17 +62,19 @@ heartbeat: 10/6/2023 5:50:06 AM
 
 コマンド
 
-`Remove-AzVMExtension -Name AzureMonitorWindowsAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name>`
+```powershell
+Remove-AzVMExtension -Name AzureMonitorWindowsAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name>
+```
 
 結果
 
-`
+```
 Virtual machine extension removal operation
 This cmdlet will remove the specified virtual machine extension. Do you want to continue?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True  NoContent No Content
-`
+```
 
 削除をしてあげることで、データ収集ルールで VM を選択できるようになっているので追加してあげます。
 
@@ -88,3 +90,7 @@ ASR では復旧計画というものがあり、DR 発動時に行う作業を1
 
 例えば、復旧する順番として「DB サーバーを先に起動した後に Web サーバーを起動する」といった流れですね。
 この復旧計画を活用し、 ASR 発動後に AMA を再インストールするという流れにしてあげることで、自動で AMA が再インストールされてログが取れるようになります。
+
+## Automation でフェールオーバー対象の VM を引っ張る
+
+復旧計画では、Azure Automation のスクリプトを利用することが可能です。
