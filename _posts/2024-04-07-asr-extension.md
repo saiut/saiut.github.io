@@ -7,13 +7,13 @@ tags:
   - ASR
 ---
 
-# TL;DR
+## 結論
 
 * ASR のフェールオーバーは拡張機能の移行をサポートしていない
 * AMA でログ取得している場合、フェールオーバー後はログが取得されなくなってしまう
 * AMA の DCR を活用して、VM の再登録などを復旧計画に入れてしまうことを忘れずに
 
-# ASR の制限事項をおさらいする
+## ASR の制限事項をおさらいする
 
 Azure Site Recovery の制限事項として、「拡張機能は再インストールしてください」というものがあります。
 
@@ -31,7 +31,7 @@ Azure Site Recovery の制限事項として、「拡張機能は再インスト
 
 ----
 
-# 拡張機能を再インストールする
+## 拡張機能を再インストールする
 
 ここでは AMA を例にして実際に ASR を使ってフェールオーバーした VM に対して AMA を再インストールする流れを見てみます。
 
@@ -45,7 +45,8 @@ VM をデプロイし、AMA でログを取得した場合、VM の拡張機能�
 ![フェールオーバー後](/assets/article_images/2023-10-07-asr-extension/vmextension_afterfailover.jpg)
 
 一応コマンドで確認すると…
-```
+
+```text
  Type                : Microsoft.Azure.Monitor.AzureMonitorWindowsAgent
     TypeHandlerVersion  : 1.20.0.0
     Status              :
@@ -68,7 +69,7 @@ Remove-AzVMExtension -Name AzureMonitorWindowsAgent -ResourceGroupName <resource
 
 結果
 
-```
+```text
 Virtual machine extension removal operation
 This cmdlet will remove the specified virtual machine extension. Do you want to continue?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -84,11 +85,11 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ただ、この方法だと人力すぎますよね。
 
-# 復旧計画で AMA 再インストールを自動化する
+## 復旧計画で AMA 再インストールを自動化する
 
 ASR では復旧計画というものがあり、DR 発動時に行う作業を1つの流れにまとめることが可能です。
 
-例えば、復旧する順番として「DB サーバーを先に起動した後に Web サーバーを起動する」といった流れですね。
+例えば、復旧する順番として「DB サーバーを先に起動した後に Web サーバーを起動する」といった流れですね。 FO 時に起動の順番を決定することができるのが、復旧計画です。
 この復旧計画を活用し、 ASR 発動後に AMA を再インストールするという流れにしてあげることで、自動で AMA が再インストールされてログが取れるようになります。
 
 ## Automation でフェールオーバー対象の VM を引っ張る
