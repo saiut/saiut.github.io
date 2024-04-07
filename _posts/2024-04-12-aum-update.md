@@ -42,8 +42,6 @@ AUM では、 Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 ### Customer Managed Schedules
 
-
-
 ### Azure マネージド
 
 ### Windows 自動更新/イメージの既定値
