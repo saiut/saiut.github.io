@@ -54,6 +54,7 @@ Windows の場合は使用率ではなく、使用量なので「Free Space」�
 [Azure VM のゲスト OS 上のパフォーマンスカウンターを気軽に取ってみる](/_posts/2024-03-19-ama-custom-meetric.md)
 
 ゲスト OS のパフォーマンスデータを Log Analytics に送信できたら、このような形でクエリを打ちこんでみましょう
+
 ```Powershell
 # Linux の場合
 Perf
@@ -69,15 +70,19 @@ Perf
 ![Linux Disk Law](/assets/article_images/2024-04-08-disk-usage-law/linux-law.png)
 
 ![Windows Disk Law](/assets/article_images/2024-04-08-disk-usage-law/windows-law.png)
+
 ディスクの使用量が取得できるはずです。
 
 ## アラートを設定したい場合
 
 ### Log Analytics の場合
+
 CounterValue で使用率が 80% を超えたら、などになると思いますので、
+
 ```Powershell
 CounterValue >= 80
 ```
+
 といったものを追加してあげて、アラートを設定してあげるといいでしょう。
 
 ### カスタムメトリックの場合

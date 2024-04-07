@@ -39,7 +39,6 @@ Azure Monitor の DCR を活用することで、DCR で設定した収集する
 
 どの VM から設定したデータを取得するか
 
-
 データソースについては、デフォルトではベーシックなものが選ばれています。
 ![DCR Resource](/assets/article_images/2024-03-19-ama-custom-metric/dcr-performancecounter.png)
 
