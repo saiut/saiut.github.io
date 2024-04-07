@@ -9,10 +9,33 @@ tags:
 
 ## 結論
 
-* ANF を SMB 接続する際にいきなりエラーになります
-* Microsoft Entra Domain Services の設定を行うユーザーにも注意
+* Update Manager は WSUS の置き換えではないです
+* パッチ適用のタイミングは様々なパターンがあるので注意
 
-## Architecture
+## Azure Update Manager
 
-アーキテクチャはこのような構成図になります。
-![Architecture](/assets/article_images/2024-02-15-anf-entrads/architecture.png)
+Windows, Linux 双方とも大事な運用項目の1つとして挙げられるパッチ適用ですが、
+Azure では Azure Update Manager（AUM）というサービスを利用して、「どの VM にどのパッチが適用されていないか」などを確認することが可能です。
+
+AUM では、 Resource Graph を用いて、VM や Arc 対応サーバーにある拡張機能からパッチの適用状況を引っ張ってきます。
+
+![AUM Architecture](/assets/article_images/2024-04-12-aum-update/aum-architecture.png)
+
+こちらから図を引っ張ってきています
+
+[Azure Update Manager について](https://learn.microsoft.com/ja-jp/azure/update-manager/overview?tabs=azure-vms#key-benefits)
+
+パッチ適用状態の確認はオンデマンド/定期的に実行され、さらにパッチ適用もオンデマンド/定期的に実行可能です。
+
+このうち、パッチを適用する「定期的な」タイミングが様々存在しているので、そちらをまとめたいと思います。
+
+## パッチ適用タイミングの色々
+
+大きく分けて 4 つあります。
+
+| パッチオーケストレーション | どのような挙動か |
+| --- | --- |
+| Customer Managed Schedules | ユーザーが決めたスケジュールでパッチを適用する |
+| Azure マネージド | Azure 側 |
+| Windows 自動更新/イメージの既定値 | bbb |
+| イメージの既定値 | bbb |
