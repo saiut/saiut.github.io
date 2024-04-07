@@ -1,6 +1,6 @@
 ---
 title:  "Azure VM のディスク使用量を取得しよう"
-date:   2024-04-07 14:34:25
+date:   2024-04-06 14:34:25
 categories: Monitor
 author_profile: false
 tags:
