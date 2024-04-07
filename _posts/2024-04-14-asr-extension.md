@@ -22,10 +22,9 @@ Azure Site Recovery の制限事項として、「拡張機能は再インスト
 ![Limitation](/assets/article_images/2023-10-07-asr-extension/limitation.jpg)
 
 拡張機能は、公式サイトから引用すると以下のようなもので、インストールすることで Azure VM に様々な機能を提供することが可能になっています。
-> 拡張機能は、Azure 仮想マシン (VMs)でのデプロイ後の構成と自動化を提供する小さなアプリケーションです。 Azure プラットフォームでは、VM の構成、監視、セキュリティ、およびユーティリティのアプリケーションを対象とする多くの拡張機能をホストします。 
+> 拡張機能は、Azure 仮想マシン (VMs)でのデプロイ後の構成と自動化を提供する小さなアプリケーションです。 Azure プラットフォームでは、VM の構成、監視、セキュリティ、およびユーティリティのアプリケーションを対象とする多くの拡張機能をホストします。
 
 [Azure 仮想マシンの拡張機能とその機能](https://learn.microsoft.com/ja-jp/azure/virtual-machines/extensions/overview)
-
 
 代表的な拡張機能として Azure VM でログを取得する Azure Monitor Agent （AMA）がありますが、ASR でフェールオーバーした後は拡張機能を再度インストールしない限り、AMA を利用してログを取得することができません。
 
