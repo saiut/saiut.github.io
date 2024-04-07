@@ -8,7 +8,7 @@ tags:
   - EntraDS
 ---
 
-## 結論
+## こんなことを書いています
 
 * ANF を SMB 接続する際にいきなりエラーになります
 * Microsoft Entra Domain Services の設定を行うユーザーにも注意

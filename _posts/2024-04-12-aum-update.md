@@ -36,6 +36,16 @@ AUM では、 Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 | パッチオーケストレーション | どのような挙動か |
 | --- | --- |
 | Customer Managed Schedules | ユーザーが決めたスケジュールでパッチを適用する |
-| Azure マネージド | Azure 側 |
-| Windows 自動更新/イメージの既定値 | bbb |
-| イメージの既定値 | bbb |
+| Azure マネージド - 安全なデプロイ | Azure 側で自動的にパッチを適用する |
+| Windows 自動更新/イメージの既定値 | ゲスト OS 側の設定に任せる |
+| 手動更新 | Windows OS 側も自動更新が無効になるため、自身で更新 |
+
+### Customer Managed Schedules
+
+
+
+### Azure マネージド
+
+### Windows 自動更新/イメージの既定値
+
+### 手動更新
