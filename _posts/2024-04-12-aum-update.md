@@ -1,10 +1,12 @@
 ---
 title:  "Azure Update Manager のアップデート方法の違い"
-date:   2024-04-12 14:34:25
+date:   2024-04-17 14:34:25
 categories: Operation
 author_profile: false
 tags:
   - "Update Manager"
+header:
+  overlay_image: /assets/article_images/2024-04-12-aum-update/aum-architecture.png
 ---
 
 ## こんなことを書いています
@@ -21,9 +23,7 @@ AUM では、 Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 ![AUM Architecture](/assets/article_images/2024-04-12-aum-update/aum-architecture.png)
 
-こちらから図を引っ張ってきています
-
-[Azure Update Manager について](https://learn.microsoft.com/ja-jp/azure/update-manager/overview?tabs=azure-vms#key-benefits)
+こちらから図を引っ張ってきています。：[Azure Update Manager について](https://learn.microsoft.com/ja-jp/azure/update-manager/overview?tabs=azure-vms#key-benefits)
 
 パッチ適用状態の確認はオンデマンド/定期的に実行され、さらにパッチ適用もオンデマンド/定期的に実行可能です。
 
@@ -42,8 +42,13 @@ AUM では、 Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 ### Customer Managed Schedules
 
+その名の通り、ユーザー側で「いつパッチを適用していいか」というタイミングを決めて、そのタイミングでパッチを適用するという方法です。
+
 ### Azure マネージド
 
 ### Windows 自動更新/イメージの既定値
 
 ### 手動更新
+
+## まとめ
+

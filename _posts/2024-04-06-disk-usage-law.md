@@ -8,6 +8,8 @@ tags:
   - "Log Analytics"
   - "ログ"
   - "メトリック"
+header:
+  overlay_image: /assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png
 ---
 
 ## こんなことを書いています
