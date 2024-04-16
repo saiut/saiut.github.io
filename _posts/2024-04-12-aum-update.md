@@ -1,6 +1,6 @@
 ---
 title:  "Azure Update Manager のアップデート方法の違い"
-date:   2024-04-17 14:34:25
+date:   2024-04-16 14:34:25
 categories: Operation
 author_profile: false
 tags:
@@ -27,7 +27,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 パッチ適用状態の確認はオンデマンド/定期的に実行され、さらにパッチ適用もオンデマンド/定期的に実行可能です。
 
-このうち、パッチを適用する「定期的な」タイミングが様々存在しているので、そちらをまとめたいと思います。
+このうち、 __パッチを適用する定期的なタイミング__ が様々存在しているので、そちらをまとめたいと思います。
 
 ## パッチ適用タイミングの色々
 
@@ -95,16 +95,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 また、Azure マネージドの場合はパッチオーケストレーションモードが __AutomaticByPlatform__ である必要があります。
 
-仮想マシン作成時の「管理」タブにある「ゲスト OS の更新プログラム」で選択可能です。（Azure-orchestrated using Automatic guest patching）
-![AutomaticByPlatform](/assets/article_images/2024-04-12-aum-update/automaticbyplatform.png)
-
-また、以下のコマンドによって、対象 VM のパッチオーケストレーションモードを確認することが可能です。後から出てくるモードも同じく確認可能です。
-
-```bash
- az vm get-instance-view --resource-group <rgname> --name <vmname>
- ```
-
-![CLI](/assets/article_images/2024-04-12-aum-update/cli-check.png)
+[パッチオーケストレーションモードの確認方法](### パッチオーケストレーションモードの確認方法)
 
 ### Windows 自動更新/イメージの既定値
 
@@ -113,7 +104,46 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 * Windows 自動更新： Windows OS のみ
 * イメージの既定値： Linux OS のみ
 
+先ほどのパッチオーケストレーションモードの確認コマンドで確認した際には、以下のように出力されます。
+
+* Windows 自動更新： AutomaticByOS
+* イメージの既定値： ImageDefault
+
+このパッチオーケストレーションモードは、特に他のモード設定をしていない場合に使用されます。
+
 ### 手動更新
+
+こちらは、Windows OS のみ対応しており、自動更新を無効にします。このモードは、自身でパッチを適用したり、WSUS など別の管理サービスを利用する際に使います。
+
+パッチオーケストレーションモードは、 __Manual__ です。
+
+### パッチオーケストレーションモードの確認方法
+
+仮想マシン作成時の「管理」タブにある「ゲスト OS の更新プログラム」で選択可能です。こちらの場合は Azure マネージドが設定されています。（Azure-orchestrated using Automatic guest patching）
+![AutomaticByPlatform](/assets/article_images/2024-04-12-aum-update/automaticbyplatform.png)
+
+また、以下のコマンドによって、対象 VM のパッチオーケストレーションモードを確認することが可能です。
+
+```bash
+ az vm get-instance-view --resource-group <rgname> --name <vmname>
+ ```
+
+![CLI](/assets/article_images/2024-04-12-aum-update/cli-check.png)
+
+### Customer Managed Schedule の注意点
+
+Customer Managed Schedule でのスケジュールでの適用は便利ですが、スケジュールを外したときに、 VM の自動パッチ適用（Azure-orchestrated）によって、 __意図しないタイミングで__ パッチが適用されてしまう可能性があります。
+
+これを回避するために、 __ByPassPlatformSafetyChecksOnUserSchedule__ という設定があります。
+この設定が true になっている場合、スケジュールが設定されていない場合、自動でパッチ適用されることがなくなりますので、これはぜひ設定しておきましょう。転ばぬ先の杖というやつですね。
+
+パッチオーケストレーションを確認しておきましょう。
+
+![設定場所](/assets/article_images/2024-04-12-aum-update/kokokara.png)
+
+![ByPass](/assets/article_images/2024-04-12-aum-update/bypass.png)
 
 ## まとめ
 
+Azure Update Manger を利用することで、パッチ管理が Azure Portal 上で可能になります。
+ただ、 WSUS のように「WSUS 自体がパッチをダウンロードし、それをクライアントにばら撒く」ようなことはせずに、あくまでパッチの適用状況の確認と、パッチを適用する場合は VM がインターネット経由で取得しにいくという点には注意です。
