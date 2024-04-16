@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://saiut.github.io/sitemap.xml
