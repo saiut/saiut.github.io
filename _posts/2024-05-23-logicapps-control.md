@@ -1,6 +1,6 @@
 ---
 title:  "Logic Apps ワークフローのアクション分岐をまとめる"
-date:   2024-10-23 14:34:25
+date:   2025-10-23 14:34:25
 categories: LogicApps
 author_profile: false
 draft: true
