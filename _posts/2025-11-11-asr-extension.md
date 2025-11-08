@@ -3,7 +3,6 @@ title:  "Azure Site Recovery でフェールオーバーしたときは VM 拡�
 date:   2025-11-11 14:34:25
 categories: DR
 author_profile: false
-draft: true
 tags:
   - ASR
 ---
