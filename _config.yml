@@ -61,8 +61,8 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Suguru Ito"
-  avatar : "/assets/images/suito.jpg"
+  name   : "saiut"
+  avatar : "/assets/images/saiut.jpg"
   bio    : "Azure で検証したことをまとめています"
   links:
     - label: "Website"
