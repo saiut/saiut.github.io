@@ -109,6 +109,9 @@ defaults:
       toc: true #add by saiut
       toc_label: "目次" #add by saiut
       show_date: true #add by saiut
+      sidebar:
+        - title: ""
+          text: "{% include sidebar-categories-tags.html %}"
   # _pages
   - scope:
       path: "_pages"
