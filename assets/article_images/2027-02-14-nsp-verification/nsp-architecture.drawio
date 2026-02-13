@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net" modified="2026-02-14T00:00:00.000Z" agent="draw.io" version="24.0.0" type="device">
+  <diagram id="nsp-verification" name="NSP検証構成">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Azure Subscription 全体枠 -->
+        <mxCell id="azure-sub" value="Azure Subscription" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=14;fontStyle=1;shape=mxgraph.azure.cloud;fillColor=#E6E6E6;strokeColor=#333333;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1090" height="760" as="geometry" />
+        </mxCell>
+
+        <!-- NSP 境界 (青い点線) -->
+        <mxCell id="nsp-boundary" value="Network Security Perimeter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;dashPattern=8 8;strokeWidth=3;fontSize=16;fontStyle=1;verticalAlign=top;spacingTop=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="500" height="500" as="geometry" />
+        </mxCell>
+
+        <!-- NSP Profile ラベル -->
+        <mxCell id="nsp-profile" value="NSP Profile" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="150" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Storage Account A (NSP内) -->
+        <mxCell id="storage-a" value="Storage Account A&#xa;(NSP 内)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="280" width="65" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-a-label" value="storageaccountA" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="117" y="340" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Key Vault (NSP内) -->
+        <mxCell id="keyvault" value="Key Vault&#xa;(NSP 内)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/security/Key_Vaults.svg;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="280" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="keyvault-label" value="keyvault01" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="387" y="350" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- NSP内の暗黙通信 (双方向矢印) -->
+        <mxCell id="implicit-comm" value="暗黙的に通信可能" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#009900;strokeWidth=2;fontSize=11;fontColor=#009900;fontStyle=2;" edge="1" parent="1" source="storage-a" target="keyvault">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Inbound / Outbound ルール -->
+        <mxCell id="inbound-rules" value="Inbound Rules&#xa;・IP アドレスベース&#xa;・サブスクリプションベース&#xa;・FQDN ベース" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="150" y="440" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="outbound-rules" value="Outbound Rules&#xa;・FQDN ベース" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="370" y="440" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- NSP外 エリア -->
+        <mxCell id="outside-label" value="NSP 外" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=5;fontColor=#CC0000;" vertex="1" parent="1">
+          <mxGeometry x="780" y="110" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- VNet (NSP外) -->
+        <mxCell id="vnet" value="VNet&#xa;10.0.0.0/16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=8;arcSize=8;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="280" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- Subnet -->
+        <mxCell id="subnet" value="Subnet&#xa;10.0.1.0/24" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=11;verticalAlign=top;spacingTop=5;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="690" y="240" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- VM (NSP外) -->
+        <mxCell id="vm" value="VM&#xa;(テスト用)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Virtual_Machine.svg;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="280" width="69" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Storage Account B (NSP外) -->
+        <mxCell id="storage-b" value="Storage Account B&#xa;(NSP 外)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="490" width="65" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-b-label" value="storageaccountB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="747" y="550" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- VM → Storage A (NSP外からのアクセス) -->
+        <mxCell id="vm-to-storage-a" value="アクセス制御&#xa;(強制モードで拒否)" style="endArrow=classic;html=1;strokeColor=#CC0000;strokeWidth=2;fontSize=10;fontColor=#CC0000;fontStyle=2;dashed=1;" edge="1" parent="1" source="vm" target="storage-a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- VM → Storage B (NSP外同士は制御なし) -->
+        <mxCell id="vm-to-storage-b" value="PaaS FW で制御" style="endArrow=classic;html=1;strokeColor=#666666;strokeWidth=1;fontSize=10;fontColor=#666666;fontStyle=2;" edge="1" parent="1" source="vm" target="storage-b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- モード説明 -->
+        <mxCell id="mode-box" value="NSP アクセスモード" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="660" y="630" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mode-learning" value="🔵 学習モード (Learning)&#xa;　既存アクセスを記録、ブロックしない" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="670" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mode-enforced" value="🔴 強制モード (Enforced)&#xa;　ルール外のアクセスをブロック" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="710" width="240" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 凡例 -->
+        <mxCell id="legend" value="凡例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=12;fontStyle=1;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-line1" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#009900;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="690" as="sourcePoint" />
+            <mxPoint x="160" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-text1" value="NSP 内の暗黙通信" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="675" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-line2" value="" style="endArrow=classic;html=1;strokeColor=#CC0000;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="720" as="sourcePoint" />
+            <mxPoint x="160" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-text2" value="NSP によるアクセス制御" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="705" width="150" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

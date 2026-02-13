@@ -30,8 +30,7 @@ PaaS リソースのファイアウォール設定を個別に管理するのは
 
 今回の検証構成は以下の通りです。
 
-<!-- TODO: アーキテクチャ図を挿入 -->
-<!-- ![architecture](/assets/article_images/2026-02-14-nsp-verification/architecture.png) -->
+![architecture](/assets/article_images/2027-02-14-nsp-verification/nsp-architecture.png)
 
 | リソース | 用途 |
 |---|---|
