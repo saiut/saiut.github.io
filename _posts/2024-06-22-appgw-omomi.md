@@ -10,6 +10,8 @@ categories: Network
 * Application Gateway では AFD や TR で可能な「トラフィックの重みづけでの負荷分散」ができない
 * 作りこみで「疑似」重みづけをやってみる
 
+<!--more-->
+
 ## AFD と TM でもいいんだけど
 
 トラフィックの負荷分散で重みづけができるサービスは、Azure Front Door や Traffic Manager になります。

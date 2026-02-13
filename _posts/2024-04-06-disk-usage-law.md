@@ -9,13 +9,15 @@ tags:
   - "ログ"
   - "メトリック"
 header:
-  overlay_image: /assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png
+  teaser: /assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png
 ---
 
 ## こんなことを書いています
 
 * Azure のホストメトリックではディスク使用量/率は取得できない
 * ディスク使用量はカスタムメトリックか Log Analytics にログとして送って取得しよう
+
+<!--more-->
 
 ## VM のディスク使用量
 

@@ -7,13 +7,15 @@ tags:
   - ANF
   - EntraDS
 header:
-  overlay_image: /assets/article_images/2024-02-15-anf-entrads/connect-adds.png
+  teaser: /assets/article_images/2024-02-15-anf-entrads/connect-adds.png
 ---
 
 ## こんなことを書いています
 
 * ANF を SMB 接続する際にいきなりエラーになります
 * Microsoft Entra Domain Services の設定を行うユーザーにも注意
+
+<!--more-->
 
 ## Architecture
 

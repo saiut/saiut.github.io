@@ -6,13 +6,15 @@ author_profile: false
 tags:
   - "Update Manager"
 header:
-  overlay_image: /assets/article_images/2024-04-12-aum-update/aum-architecture.png
+  teaser: /assets/article_images/2024-04-12-aum-update/aum-architecture.png
 ---
 
 ## こんなことを書いています
 
 * Update Manager はパッチ更新管理に便利なサービスです
 * パッチ適用のタイミングは様々なパターンがあるので注意
+
+<!--more-->
 
 ## Azure Update Manager
 

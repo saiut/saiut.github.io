@@ -7,7 +7,7 @@ tags:
   - VWAN
   - VNet
 header:
-  overlay_image: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
+  teaser: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
 sidebar:
   toc: true
 ---
@@ -19,7 +19,7 @@ sidebar:
 - 接続できてしまうが、対象の VNet 同士は通信できないので注意
 - 同一仮想ハブ内であれば IP Range が被っていると接続できないとエラーが出るのに。。。
 
-----
+<!--more-->
 
 ## Virtual WAN
 
