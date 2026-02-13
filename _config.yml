@@ -62,7 +62,7 @@ plugins:
 
 author:
   name   : "saiut"
-  avatar : "/assets/images/saiut.jpg"
+  avatar : "/assets/images/saiut.JPG"
   bio    : "Azure で検証したことをまとめています"
   links:
     - label: "Website"
