@@ -2,9 +2,9 @@
 title:  "Virtual WAN で仮想ハブが相互接続されているときの VNet の動作"
 date:   2024-03-10 14:34:25
 author_profile: false
-categories: Network
+categories: ネットワーク
 tags:
-  - VWAN
+  - Virtual WAN
   - VNet
 header:
   teaser: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png

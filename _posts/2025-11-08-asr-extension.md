@@ -4,7 +4,8 @@ date:   2025-11-08 14:34:25
 categories: DR
 author_profile: false
 tags:
-  - ASR
+  - Azure Site Recovery
+  - Azure Monitor Agent
 ---
 
 ## こんなことを書いています

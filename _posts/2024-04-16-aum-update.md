@@ -1,10 +1,10 @@
 ---
 title:  "Azure Update Manager のアップデート方法の違い"
 date:   2024-04-16 14:34:25
-categories: Operation
+categories: 運用
 author_profile: false
 tags:
-  - "Update Manager"
+  - Azure Update Manager
 header:
   teaser: /assets/article_images/2024-04-12-aum-update/aum-architecture.png
 ---

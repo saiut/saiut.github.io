@@ -2,7 +2,9 @@
 title:  "Application Gateway で「疑似」重みづけをしよう"
 date:   2024-06-22 14:34:25
 author_profile: false
-categories: Network
+categories: ネットワーク
+tags:
+  - Application Gateway
 ---
 
 ## こんなことを書いています

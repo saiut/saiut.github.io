@@ -1,13 +1,11 @@
 ---
 title:  "Azure VM のディスク使用量を取得しよう"
 date:   2024-04-06 14:34:25
-categories: Monitor
+categories: 監視
 author_profile: false
 tags:
-  - Storage
-  - "Log Analytics"
-  - "ログ"
-  - "メトリック"
+  - Log Analytics
+  - Custom Metrics
 header:
   teaser: /assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png
 ---

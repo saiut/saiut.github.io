@@ -1,12 +1,12 @@
 ---
 title:  "Logic Apps でアラート内容をカスタマイズする"
 date:   2027-10-25 14:34:25
-categories: Monitor
+categories: 監視
 draft: true
 author_profile: false
 tags:
-  - "Logic Apps"
-  - Mail
+  - Logic Apps
+  - Alert
 ---
 
 ## こんなことを書いています

@@ -1,10 +1,10 @@
 ---
 title:  "Logic Apps ワークフローのアクション分岐をまとめる"
 date:   2025-07-03 14:34:25
-categories: LogicApps
+categories: アプリケーション
 author_profile: false
 tags:
-  - PaaS
+  - Logic Apps
 ---
 
 ## こんなこと書いてます

@@ -1,11 +1,11 @@
 ---
 title:  "Microsoft Entra Domain Services に Azure NetApp Files を接続するときにハマったこと"
 date:   2024-03-13 14:34:25
-categories: Storage
+categories: ストレージ
 author_profile: false
 tags:
-  - ANF
-  - EntraDS
+  - Azure NetApp Files
+  - Entra Domain Services
 header:
   teaser: /assets/article_images/2024-02-15-anf-entrads/connect-adds.png
 ---

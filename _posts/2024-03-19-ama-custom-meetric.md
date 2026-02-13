@@ -1,11 +1,11 @@
 ---
 title:  "Azure VM のゲスト OS 上のパフォーマンスカウンターを気軽に取ってみる"
 date:   2024-03-19 05:34:25
-categories: Monitor
+categories: 監視
 author_profile: false
 tags:
-  - AMA
-  - "メトリック"
+  - Azure Monitor Agent
+  - Custom Metrics
 ---
 
 ## こんなことを書いています
