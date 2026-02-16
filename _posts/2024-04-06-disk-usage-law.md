@@ -7,7 +7,7 @@ tags:
   - Log Analytics
   - Custom Metrics
 header:
-  teaser: /assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png
+  teaser: /assets/article_images/2024-04-06-disk-usage-law/linux-custom-metric.png
 ---
 
 ## こんなことを書いています
@@ -40,12 +40,12 @@ Azure 基盤側からみたメトリックではなく、ゲスト OS 側で取�
 
 Linux の場合は、「disk/used_percent」などで取得するといいでしょう。
 
-![Linux Free Disk Usage](/assets/article_images/2024-04-08-disk-usage-law/linux-custom-metric.png)
+![Linux Free Disk Usage](/assets/article_images/2024-04-06-disk-usage-law/linux-custom-metric.png)
 
 Windows の場合は使用率ではなく、使用量なので「Free Space」を取得するといいかと。
 （こちらの例では_toralで取得しており、全ディスクの空き容量を取得してしまっているので、それぞれのディスクを分けて取得したい場合は C,D,E など分けてカスタムメトリックを取得する必要があります）
 
-![Windows Free Space](/assets/article_images/2024-04-08-disk-usage-law/windows-custom-metric.png)
+![Windows Free Space](/assets/article_images/2024-04-06-disk-usage-law/windows-custom-metric.png)
 
 ## Log Analytics を利用する
 
@@ -68,9 +68,9 @@ Perf
 | where CounterName == "% Free Space"
 ```
 
-![Linux Disk Law](/assets/article_images/2024-04-08-disk-usage-law/linux-law.png)
+![Linux Disk Law](/assets/article_images/2024-04-06-disk-usage-law/linux-law.png)
 
-![Windows Disk Law](/assets/article_images/2024-04-08-disk-usage-law/windows-law.png)
+![Windows Disk Law](/assets/article_images/2024-04-06-disk-usage-law/windows-law.png)
 
 ディスクの使用量が取得できるはずです。
 
@@ -90,4 +90,4 @@ CounterValue >= 80
 
 特に考えることなく、対象のカスタムメトリックからアラートを作成してあげましょう。
 
-![Metric Alert](/assets/article_images/2024-04-08-disk-usage-law/metric-alert.png)
+![Metric Alert](/assets/article_images/2024-04-06-disk-usage-law/metric-alert.png)

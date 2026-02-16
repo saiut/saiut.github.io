@@ -7,7 +7,7 @@ tags:
   - Azure NetApp Files
   - Entra Domain Services
 header:
-  teaser: /assets/article_images/2024-02-15-anf-entrads/connect-adds.png
+  teaser: /assets/article_images/2024-03-13-anf-entrads/connect-adds.png
 ---
 
 ## こんなことを書いています
@@ -20,7 +20,7 @@ header:
 ## Architecture
 
 アーキテクチャはこのような構成図になります。
-![Architecture](/assets/article_images/2024-02-15-anf-entrads/architecture.png)
+![Architecture](/assets/article_images/2024-03-13-anf-entrads/architecture.png)
 
 ANF のテナントと Entra Domain Services のテナントを分けていますが、深い意味はありません。
 簡単に解説するとこのようなアーキテクチャです。
@@ -48,7 +48,7 @@ Entra Domain Service は簡単にいうと「マネージドの Active Directory
 
 ANF を SMB で利用したい場合には、ANF を ADDS に所属する必要があります。
 
-![ADDS接続](/assets/article_images/2024-02-15-anf-entrads/connect-adds.png)
+![ADDS接続](/assets/article_images/2024-03-13-anf-entrads/connect-adds.png)
 
 [Azure NetApp Files の Active Directory 接続の作成と管理](https://learn.microsoft.com/ja-jp/azure/azure-netapp-files/create-active-directory-connections)
 
@@ -62,7 +62,7 @@ ANF を SMB で利用したい場合には、ANF を ADDS に所属する必要�
 
 Entra ID でユーザーを作成してあげるか、ADDS で同期されてきた Entra ID に出来たユーザーに対して、 AAD DC Administrators に所属させてあげましょう。
 
-![AAD DC Administrators](/assets/article_images/2024-02-15-anf-entrads/aaddcadministrators.png)
+![AAD DC Administrators](/assets/article_images/2024-03-13-anf-entrads/aaddcadministrators.png)
 
 対象のユーザーで VM に対してログインし、 VM に ADDS のツールや DNS のツールをインストールして設定してあげましょう。
 ちなみに DNS ツールを利用する際は、Entra ID に割り当てられた IP アドレスではなく、FQDN を利用しないといけないことに注意です。
@@ -81,7 +81,7 @@ ADDS 接続を作成し、SMB ボリュームを作成する際、以下のエ�
 
 ### OU の指定が AADDC Computers
 
-![ADDS接続](/assets/article_images/2024-02-15-anf-entrads/connect-adds.png)
+![ADDS接続](/assets/article_images/2024-03-13-anf-entrads/connect-adds.png)
 
 AD 接続設定時、「組織単位のパス」を入れます。
 これは ANF 自体をどの OU に所属させるかという設定になります。

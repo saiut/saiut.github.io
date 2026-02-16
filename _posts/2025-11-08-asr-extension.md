@@ -7,7 +7,7 @@ tags:
   - Azure Site Recovery
   - Azure Monitor Agent
 header:
-  teaser: /assets/article_images/2025-11-11-asr-extension/vmextension.jpg
+  teaser: /assets/article_images/2025-11-08-asr-extension/vmextension.jpg
 ---
 
 ## こんなことを書いています
@@ -24,7 +24,7 @@ Azure Site Recovery の制限事項の 1 つとして、「拡張機能は再イ
 
 [Azure リージョン間での Azure VM ディザスター リカバリーに関するサポート マトリックス](https://learn.microsoft.com/ja-jp/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---compute-settings)
 
-![Limitation](/assets/article_images/2025-11-11-asr-extension/limitation.jpg)
+![Limitation](/assets/article_images/2025-11-08-asr-extension/limitation.jpg)
 
 そもそも拡張機能は公式サイトから引用すると以下のようなもので、「Azure VM に様々な機能を提供する軽量なアプリケーション」です。
 > 拡張機能は、Azure 仮想マシン (VMs)でのデプロイ後の構成と自動化を提供する小さなアプリケーションです。 Azure プラットフォームでは、VM の構成、監視、セキュリティ、およびユーティリティのアプリケーションを対象とする多くの拡張機能をホストします。
@@ -41,12 +41,12 @@ Azure Site Recovery の制限事項の 1 つとして、「拡張機能は再イ
 
 VM をデプロイし、AMA でログを取得した場合、VM の拡張機能はこのようになっています。（AMA 以外の拡張機能も含まれています、AMA は AzureMonitorWindowsAgent です）
 
-![VM 拡張機能](/assets/article_images/2025-11-11-asr-extension/vmextension.jpg)
+![VM 拡張機能](/assets/article_images/2025-11-08-asr-extension/vmextension.jpg)
 
 対象の VM をフェールオーバーした後、改めて VM の拡張機能を確認してみると、サポートされていないためすべてなくなっています。
 （対象の VM 名が一緒なのでわかりにくいですが）
 
-![フェールオーバー後](/assets/article_images/2025-11-11-asr-extension/vmextension_afterfailover.jpg)
+![フェールオーバー後](/assets/article_images/2025-11-08-asr-extension/vmextension_afterfailover.jpg)
 
 一応コマンドで確認すると…
 
@@ -84,7 +84,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 削除をしてあげることで、データ収集ルールで VM を選択できるようになっているので追加してあげます。
 （下記のスクリーンショットにはないのですが、AMA 拡張機能削除前は対象の VM は選べない状態となっています）
 
-![データ収集ルール](/assets/article_images/2025-11-11-asr-extension/dcr.jpg)
+![データ収集ルール](/assets/article_images/2025-11-08-asr-extension/dcr.jpg)
 
 これでログが無事取得できるようになりました。
 

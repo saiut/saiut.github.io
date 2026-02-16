@@ -6,7 +6,7 @@ author_profile: false
 tags:
   - Azure Update Manager
 header:
-  teaser: /assets/article_images/2024-04-12-aum-update/aum-architecture.png
+  teaser: /assets/article_images/2024-04-16-aum-update/aum-architecture.png
 ---
 
 ## こんなことを書いています
@@ -23,7 +23,7 @@ Azure では Azure Update Manager（AUM）というサービスを利用して�
 
 AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにある拡張機能からパッチの適用状況を引っ張ってきます。
 
-![AUM Architecture](/assets/article_images/2024-04-12-aum-update/aum-architecture.png)
+![AUM Architecture](/assets/article_images/2024-04-16-aum-update/aum-architecture.png)
 
 こちらから図を引用しています。：[Azure Update Manager について](https://learn.microsoft.com/ja-jp/azure/update-manager/overview?tabs=azure-vms#key-benefits)
 
@@ -48,7 +48,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 追加方法は簡単で、AUM 概要から「スケジュールの更新」から設定します。
 
-![Schedule](/assets/article_images/2024-04-12-aum-update/schedule.png)
+![Schedule](/assets/article_images/2024-04-16-aum-update/schedule.png)
 
 リソースとして作成していきます。
 
@@ -56,7 +56,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 * 「再起動の設定」で、パッチ適用時に再起動してしまっていいか
 * 「スケジュール」で、いつから/メンテナンスする期間/期間を決定
 
-![add-Schedule](/assets/article_images/2024-04-12-aum-update/add-schedule.png)
+![add-Schedule](/assets/article_images/2024-04-16-aum-update/add-schedule.png)
 
 次にどの VM を対象のスケジュールでパッチを当てるかを設定します。
 
@@ -66,10 +66,10 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 
 静的に割り当てる場合は、動的スコープはスルーして、次の「リソース」タブでどの VM かを全て決めます。
 
-![動的スコープ](/assets/article_images/2024-04-12-aum-update/dynamicscope.png)
+![動的スコープ](/assets/article_images/2024-04-16-aum-update/dynamicscope.png)
 
 次に、どのパッチを適用するかを決定します。 KB ID からも決めることが可能です。
-![パッチ](/assets/article_images/2024-04-12-aum-update/patch.png)
+![パッチ](/assets/article_images/2024-04-16-aum-update/patch.png)
 
 こういった形で、決められたスケジュールで決められた範囲のパッチを自動で適用できるようになります。
 
@@ -122,7 +122,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
 ### パッチオーケストレーションモードの確認方法
 
 仮想マシン作成時の「管理」タブにある「ゲスト OS の更新プログラム」で選択可能です。こちらの場合は Azure マネージドが設定されています。（Azure-orchestrated using Automatic guest patching）
-![AutomaticByPlatform](/assets/article_images/2024-04-12-aum-update/automaticbyplatform.png)
+![AutomaticByPlatform](/assets/article_images/2024-04-16-aum-update/automaticbyplatform.png)
 
 また、以下のコマンドによって、対象 VM のパッチオーケストレーションモードを確認することが可能です。
 
@@ -130,7 +130,7 @@ AUM では、Resource Graph を用いて、VM や Arc 対応サーバーにあ�
  az vm get-instance-view --resource-group <rgname> --name <vmname>
  ```
 
-![CLI](/assets/article_images/2024-04-12-aum-update/cli-check.png)
+![CLI](/assets/article_images/2024-04-16-aum-update/cli-check.png)
 
 ### Customer Managed Schedule の注意点
 
@@ -141,9 +141,9 @@ Customer Managed Schedule でのスケジュールでの適用は便利ですが
 
 パッチオーケストレーションを確認しておきましょう。
 
-![設定場所](/assets/article_images/2024-04-12-aum-update/kokokara.png)
+![設定場所](/assets/article_images/2024-04-16-aum-update/kokokara.png)
 
-![ByPass](/assets/article_images/2024-04-12-aum-update/bypass.png)
+![ByPass](/assets/article_images/2024-04-16-aum-update/bypass.png)
 
 ## まとめ
 

@@ -7,7 +7,7 @@ tags:
   - Virtual WAN
   - VNet
 header:
-  teaser: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
+  teaser: /assets/article_images/2024-03-10-vwan-vhub-vnet/vwan-architecture.png
 ---
 
 ## こんなことを書いています
@@ -30,7 +30,7 @@ Virtual WAN を活用することで、様々な場所から Auzre への接続�
 - VNet
 
 公式ドキュメントからの抜粋ですが、以下のような形になります。
-![VWAN-Architecture](/assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png)
+![VWAN-Architecture](/assets/article_images/2024-03-10-vwan-vhub-vnet/vwan-architecture.png)
 
 大規模に様々な接続形態がある場合に使用されることが多い Virtual WAN ですが、
 その中心にいるものが仮想ハブと言われるものです。
@@ -41,19 +41,19 @@ Virtual WAN を活用することで、様々な場所から Auzre への接続�
 
 ですので、オンプレミス - 仮想ハブA - 仮想ハブB - VNet C といった接続を設定なしで通信してくれるようになります。
 
-![OnP-VirtualHub-Vnet](/assets/article_images/2023-09-30-vwan-vhub-vnet/onp-virtualhub-vnet.jpg)
+![OnP-VirtualHub-Vnet](/assets/article_images/2024-03-10-vwan-vhub-vnet/onp-virtualhub-vnet.jpg)
 
 VNet の追加は非常に簡単で、Virtual WAN の設定より「接続の追加」から VNet を追加するだけです。
 
-![VWAN-add-VNet](/assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-add-vnet.jpg)
+![VWAN-add-VNet](/assets/article_images/2024-03-10-vwan-vhub-vnet/vwan-add-vnet.jpg)
 
 VNet を追加すると、 VNet 側には自動で VNet Peering が追加されます。
 
-![VNet-Peering](/assets/article_images/2023-09-30-vwan-vhub-vnet/vnet-peering.jpg)
+![VNet-Peering](/assets/article_images/2024-03-10-vwan-vhub-vnet/vnet-peering.jpg)
 
 もちろん 同じ仮想ハブ内で複数の VNet やオンプレミスのネットワークを接続する際、 VNet の IP Range が被っているとエラーがでます。
 
-![Same-IP Range](/assets/article_images/2023-09-30-vwan-vhub-vnet/same_iprange.jpg)
+![Same-IP Range](/assets/article_images/2024-03-10-vwan-vhub-vnet/same_iprange.jpg)
 
 ----
 
@@ -64,7 +64,7 @@ IP Range は管理されていることが多いので、重複が発生する�
 しかし、例えば Virtual WAN はとある部署が管理していて、そこに接続するためのシステムが別部署で管理している場合に　IP Range が被ってしまうことが起こり得てしまうでしょう。
 
 そんな時に何も考えずに 仮想ハブに VNet を繋いでいくと、こんな構成が取れてしまいます。
-![VWAN-Same-Ip-Range](/assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-same-ip-range.jpg)
+![VWAN-Same-Ip-Range](/assets/article_images/2024-03-10-vwan-vhub-vnet/vwan-same-ip-range.jpg)
 
 この場合、仮想ハブ A と仮想ハブ B に同じ 10.1.0.0/16 の IP Range を持つ VNet C と VNet D がありますが、
 2 つの VNet 間はもちろん通信できません。

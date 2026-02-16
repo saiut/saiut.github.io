@@ -6,7 +6,7 @@ categories: ネットワーク
 tags:
   - Application Gateway
 header:
-  teaser: /assets/article_images/2024-05-22-appgw-omomi/VMshutdown.png
+  teaser: /assets/article_images/2024-06-22-appgw-omomi/VMshutdown.png
 ---
 
 ## こんなことを書いています
@@ -33,11 +33,11 @@ L7 トラフィックの負荷分散を行うことが出来る Azure のサー�
 
 * VM 2 台のうち、VM2 をシャットダウンしておいて、VM1 側に障害があった際に立ち上げる
 
-![architecture](/assets/article_images/2024-05-22-appgw-omomi/VMshutdown.png)
+![architecture](/assets/article_images/2024-06-22-appgw-omomi/VMshutdown.png)
 
 * AppGW で VM2 にもルーティングされるように設定しておき、普段は VM2 にルーティングされないように NSG をつけておいて、VM1 障害時に VM2 の NSG を外す
 
-![architecture2](/assets/article_images/2024-05-22-appgw-omomi/nsg.png)
+![architecture2](/assets/article_images/2024-06-22-appgw-omomi/nsg.png)
 
 両方とも不可能ではなさそうです。 VM1 側で障害を検知したら、VM2 を立ち上げる or VM2 NIC に付随の NSG を外すだけで OK ですからね。
 ただし、VM2 を立ち上げるのと NSG を外す動作だと、NSG を外すほうが時間的にはかからないので、今回は後者の方法をとってみたいと思います。
@@ -51,7 +51,7 @@ AppGW では、メトリックとして正常なホスト数（Healthy Host Coun
 
 ちなみに正常「ではない」ホスト数に関しては Unhealthy Host Count というメトリックになります。
 
-![metric](/assets/article_images/2024-05-22-appgw-omomi/metric.png)
+![metric](/assets/article_images/2024-06-22-appgw-omomi/metric.png)
 
 上記の画像だと、2 台の正常なホストがいて、とあるタイミングで 1 台に異常があって正常なホストが 1 に減っています。
 
