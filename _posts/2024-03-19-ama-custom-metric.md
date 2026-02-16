@@ -6,6 +6,8 @@ author_profile: false
 tags:
   - Azure Monitor Agent
   - Custom Metrics
+redirect_from:
+  - /ama-custom-meetric/
 ---
 
 ## こんなことを書いています
@@ -24,8 +26,8 @@ Azure VM では、仮想マシンの基盤から VM のメトリックを自動�
 昔はもうちょっと面倒だったなーという記憶があるのですが、 Azure Monitor Agent がリリースされてデータ収集ルール（DCR）が使える現状では、
 DCR を活用すれば簡単に取得することが可能です。
 
-> {: .notice--primary}
-> AMA を利用したカスタムメトリックはプレビュー機能になります。
+AMA を利用したカスタムメトリクスはプレビュー機能になります。
+{: .notice--warning}
 
 ----
 

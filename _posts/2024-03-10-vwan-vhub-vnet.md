@@ -8,8 +8,6 @@ tags:
   - VNet
 header:
   teaser: /assets/article_images/2023-09-30-vwan-vhub-vnet/vwan-architecture.png
-sidebar:
-  toc: true
 ---
 
 ## こんなことを書いています

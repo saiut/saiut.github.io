@@ -22,6 +22,8 @@ twitter_username: saiut
 github_username: saiut
 minimal_mistakes_skin: air
 search: true
+breadcrumbs: true #add for UX - パンくずリスト
+words_per_minute: 200 #add for UX - 日本語の読了時間調整
 date_format: "%Y-%m-%d" #add by saiut
 locale: "ja-JP" #add by saiut
 og_image: /assets/images/icon.jpg #add for SEO - OGP default image
@@ -31,7 +33,7 @@ markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: Asia/Tokyo
 excerpt_separator: "<!--more-->" #add for SEO - excerpt for search snippets
@@ -59,6 +61,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-redirect-from
 
 author:
   name   : "saiut"
@@ -101,7 +104,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: false #change by saiut
+      read_time: true #change for UX - 読了時間表示
       comments: false #change by saiut
       share: true
       related: true
@@ -109,6 +112,8 @@ defaults:
       toc: true #add by saiut
       toc_label: "目次" #add by saiut
       show_date: true #add by saiut
+      header:
+        teaser: /assets/images/icon.jpg #add for UX - デフォルトteaser画像
   # _pages
   - scope:
       path: "_pages"
