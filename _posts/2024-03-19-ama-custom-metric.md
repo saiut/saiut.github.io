@@ -8,6 +8,8 @@ tags:
   - Custom Metrics
 redirect_from:
   - /ama-custom-meetric/
+header:
+  teaser: /assets/article_images/2024-03-19-ama-custom-metric/custommetric.png
 ---
 
 ## こんなことを書いています

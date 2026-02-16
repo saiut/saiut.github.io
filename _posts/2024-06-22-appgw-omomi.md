@@ -5,6 +5,8 @@ author_profile: false
 categories: ネットワーク
 tags:
   - Application Gateway
+header:
+  teaser: /assets/article_images/2024-05-22-appgw-omomi/VMshutdown.png
 ---
 
 ## こんなことを書いています

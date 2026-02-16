@@ -6,6 +6,8 @@ author_profile: false
 tags:
   - Azure Site Recovery
   - Azure Monitor Agent
+header:
+  teaser: /assets/article_images/2025-11-11-asr-extension/vmextension.jpg
 ---
 
 ## こんなことを書いています
