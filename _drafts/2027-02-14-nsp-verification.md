@@ -124,6 +124,32 @@ NSP の診断設定を有効にすると、許可/拒否されたアクセスの
 | コスト | NSP 自体は無料（プレビュー時点） | Private Endpoint ごとに課金 |
 | 管理性 | 一元管理しやすい | リソースごとに管理が必要 |
 
+## Azure AI サービスでの NSP 対応状況
+
+NSP は Storage Account や Key Vault だけでなく、Azure の AI サービスにも対応しています。AI ワークロードでもパブリックエンドポイント経由のアクセスを NSP で一元管理できるため、AI ソリューション全体のネットワークセキュリティを統一的に制御できます。
+
+| AI サービス | リソースタイプ | NSP 対応状況 |
+|---|---|---|
+| Azure OpenAI Service | Microsoft.CognitiveServices (kind="OpenAI") | パブリックプレビュー |
+| Microsoft Foundry (Azure AI Services) | Microsoft.CognitiveServices (kind="AIServices") | 一般提供 (GA) |
+| Azure AI Search | Microsoft.Search/searchServices | 一般提供 (GA) |
+
+### AI サービスで NSP を活用するメリット
+
+* **データ流出防止**: Azure OpenAI や AI Search に保存されたデータがペリメータ外に流出するリスクを低減
+* **サービス間連携の簡素化**: 例えば Azure AI Search + Azure OpenAI + Storage Account をすべて同一ペリメータに配置すれば、サービス間の通信はマネージド ID とロール割り当てによる認証のみで暗黙的に許可される
+* **一元的なログ管理**: AI サービスへの許可/拒否アクセスを他の PaaS リソースと同一のペリメータログで確認可能
+
+### Azure OpenAI Service での制限事項（プレビュー時点）
+
+* NSP が制御するのはデータプレーン操作のみ。コントロールプレーン操作（モデルのデプロイなど）は NSP の対象外
+* Fine-tuning API や Assistants API が期待通り動作しない場合がある
+* ペリメータ内の Azure OpenAI リソースは、システムまたはユーザー割り当てマネージド ID を使用し、データソースへの読み取りアクセスを許可するロール割り当てが必要
+
+[Azure OpenAI を NSP に追加する方法](https://learn.microsoft.com/ja-jp/azure/ai-services/openai/how-to/network-security-perimeter)
+
+[Microsoft Foundry を NSP に追加する方法](https://learn.microsoft.com/ja-jp/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter)
+
 ## まとめ
 
 <!-- TODO: 検証結果のまとめを記載 -->
