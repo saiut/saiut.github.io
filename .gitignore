@@ -2,8 +2,3 @@ _site
 .sass-cache
 .jekyll-metadata
 Gemfile.lock
-
-# Copilot agent/prompt files (keep local only)
-.github/agents/
-.github/prompts/
-.github/copilot-instructions.md
