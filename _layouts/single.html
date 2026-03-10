@@ -4,7 +4,7 @@ layout: default
 {%- assign locale = page.locale | default: layout.locale | default: site.locale %}
 
 {% assign show_inline_eyecatch = false %}
-{% if page.collection == "posts" and page.header %}
+{% if page.header %}
   {% if page.header.teaser or page.header.overlay_image or page.header.image %}
     {% assign show_inline_eyecatch = true %}
   {% endif %}
