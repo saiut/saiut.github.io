@@ -10,6 +10,7 @@ tags:
   - DNS
   - トラブルシューティング
 header:
+  overlay_image: /assets/article_images/2026-03-10-privatelink-dns-troubleshooting/eyecatch.svg
   teaser: /assets/article_images/2026-03-10-privatelink-dns-troubleshooting/eyecatch.svg
 ---
 
