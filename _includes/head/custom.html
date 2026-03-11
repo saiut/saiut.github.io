@@ -59,3 +59,40 @@
           margin-top: 0.75rem;
      }
 </style>
+
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+          var article = document.querySelector("article.page");
+          if (!article) return;
+          if (article.querySelector(".page__eyecatch")) return;
+
+          var title = article.querySelector("#page-title");
+          if (!title) return;
+
+          var header = title.closest("header");
+          if (!header) return;
+
+          var ogImage = document.querySelector('meta[property="og:image"]');
+          if (!ogImage || !ogImage.content) return;
+
+          var src = ogImage.content;
+          var origin = window.location.origin;
+          if (src.indexOf(origin) === 0) {
+               src = src.slice(origin.length);
+          }
+
+          if (src === "/assets/images/icon.jpg") return;
+          if (src.indexOf("/assets/article_images/") !== 0) return;
+
+          var figure = document.createElement("figure");
+          figure.className = "page__eyecatch";
+
+          var img = document.createElement("img");
+          img.src = src;
+          img.alt = title.textContent.trim();
+          img.loading = "eager";
+
+          figure.appendChild(img);
+          header.appendChild(figure);
+     });
+</script>
