@@ -1,8 +1,17 @@
 <link rel="icon" type="image/webp" href="/assets/images/icon.jpg">
 
 <!-- Google Adsense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4982958035060089"
-     crossorigin="anonymous">
+<script>
+     (function () {
+          var adsenseHosts = ["saiut.com", "www.saiut.com"];
+          if (adsenseHosts.indexOf(window.location.hostname) === -1) return;
+
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4982958035060089";
+          s.crossOrigin = "anonymous";
+          document.head.appendChild(s);
+     })();
 </script>
 
 <!-- Google Search Console-->
