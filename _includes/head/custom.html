@@ -27,4 +27,35 @@
           font-size: 0.85em;
           color: #5c6670;
      }
+
+     .toc--collapsible > summary {
+          cursor: pointer;
+          list-style: none;
+     }
+
+     .toc--collapsible > summary::-webkit-details-marker {
+          display: none;
+     }
+
+     .toc--collapsible > summary .nav__title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.75rem;
+          margin: 0;
+     }
+
+     .toc--collapsible > summary .nav__title::after {
+          content: "+";
+          font-size: 1.1rem;
+          line-height: 1;
+     }
+
+     .toc--collapsible[open] > summary .nav__title::after {
+          content: "-";
+     }
+
+     .toc--collapsible nav {
+          margin-top: 0.75rem;
+     }
 </style>
