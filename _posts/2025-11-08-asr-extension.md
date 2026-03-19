@@ -151,7 +151,7 @@ try {
     Write-Output "Associating VM with Data Collection Rule: $dcrId"
     $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
     $associationName = "vm-$vmName-dcr-association"
-    New-AzDataCollectionRuleAssociation -ResourceUri $vm.Id -RuleName $associationName -DataCollectionRuleId $dcrId
+    New-AzDataCollectionRuleAssociation -ResourceUri $vm.Id -AssociationName $associationName -DataCollectionRuleId $dcrId
     Write-Output "DCR association completed successfully"
 } catch {
     Write-Error "Failed to associate VM with DCR: $($_.Exception.Message)"

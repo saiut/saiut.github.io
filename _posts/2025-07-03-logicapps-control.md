@@ -26,7 +26,7 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
 
 * Conditional
 * Switch 
-* Brunches
+* Branches
 * Loop
 * Scopes
 
@@ -47,17 +47,21 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
       ]
     },
     "actions": {
-      "True": {
+      "CallApproval": {
         "type": "ApiConnection",
         "inputs": {
           "host": {
             /* 承認API接続情報 */
           }
         }
-      },
-      "False": {
-        "type": "Compose",
-        "inputs": "自動承認"
+      }
+    },
+    "else": {
+      "actions": {
+        "AutoApprove": {
+          "type": "Compose",
+          "inputs": "自動承認"
+        }
       }
     }
   }
@@ -65,7 +69,7 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
  ```
 - typeにIfを指定
 - expressionで真偽を判定
-- actions.True／actions.Falseに分岐先を記述
+- actionsにTrue時の処理、elseにFalse時の処理を記述
 
 ### Switch 
 
@@ -106,41 +110,34 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
 - casesでキーごとに処理を定義
 - defaultでどのケースにも該当しない値をハンドリング
 
-### Brunches
+### Branches
 
 いわゆるパラレル処理、処理を並列で走らせ、処理の高速化や非同期実行を実現させます。
 下記の例は、メール送信とログ記録を同時に行わせています。
 
 ```json
 "actions": {
-  "ParallelBranches": {
-    "type": "Parallel",
-    "branches": {
-      "Branch1": {
-        "actions": {
-          "SendEmail": {
-            "type": "Compose",
-            "inputs": "メール送信"
-          }
-        }
-      },
-      "Branch2": {
-        "actions": {
-          "LogApi": {
-            "type": "Http",
-            "inputs": {
-              /* ログ記録API */  
-            }
-          }
-        }
-      }
+  "SendEmail": {
+    "type": "Compose",
+    "inputs": "メール送信",
+    "runAfter": {
+      "PreviousAction": ["Succeeded"]
+    }
+  },
+  "LogApi": {
+    "type": "Http",
+    "inputs": {
+      /* ログ記録API */
+    },
+    "runAfter": {
+      "PreviousAction": ["Succeeded"]
     }
   }
 }
  ```
-- typeにParallelを指定
-- branches内で複数のブランチを定義
-- 必要に応じてrunAfterで実行タイミングを制御
+- Logic Apps には「Parallel」タイプは存在しない
+- 同じ runAfter の依存先を指定することで、複数アクションが並列実行される
+- 上記の例では SendEmail と LogApi が PreviousAction の後に同時に実行される
 
 
 ### Loop
@@ -161,13 +158,17 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
         "inputs": "@item()"
       }
     },
-    "parallel": 5
+    "runtimeConfiguration": {
+      "concurrency": {
+        "repetitions": 5
+      }
+    }
   }
 }
  ```
 
 - foreachで対象の配列を指定
-- parallelで同時実行数を設定
+- runtimeConfiguration.concurrency.repetitionsで同時実行数を設定
 
 
 #### Until
@@ -188,12 +189,19 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
         /* ステータス確認処理 */
       },
       "Delay": {
-        "type": "Delay",
-        "timeout": "PT10S"
+        "type": "Wait",
+        "inputs": {
+          "interval": {
+            "count": 10,
+            "unit": "Second"
+          }
+        }
       }
     },
-    "limit": 20,
-    "timeout": "PT5M"
+    "limit": {
+      "count": 20,
+      "timeout": "PT5M"
+    }
   }
 }
  ```
@@ -201,7 +209,7 @@ Logic Apps を利用してワークフローを実行させる場合、通常で
 - timeoutで全体の実行上限時間
 
 ### Scopes
-複数アクションをまとめて、成功・しパ維持の皇族処理を一括で設定します。
+複数アクションをまとめて、成功・失敗時の後続処理を一括で設定します。
 
 ```json
 "actions": {

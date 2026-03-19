@@ -21,7 +21,7 @@ header:
 
 ## Virtual WAN
 
-Virtual WAN を活用することで、様々な場所から Auzre への接続を 1 つの Hub にまとめることができます。
+Virtual WAN を活用することで、様々な場所から Azure への接続を 1 つの Hub にまとめることができます。
 以下のようなものを、1 つの Virtual WAN にまとめてしまい、相互に接続することが出来るサービスです。
 
 - S2S VPN
