@@ -70,7 +70,7 @@ layout: default
       <section class="page__content e-content" itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <details class="toc toc--collapsible" {% if page.toc_open != false %}open{% endif %}>
+            <details class="toc toc--collapsible" {% if page.toc_open %}open{% endif %}>
               <summary class="toc__summary">
                 <span class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[locale].toc_label | default: "On this page" }}</span>
               </summary>
