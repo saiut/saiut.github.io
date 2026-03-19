@@ -5,6 +5,8 @@ categories: アプリケーション
 author_profile: false
 tags:
   - Logic Apps
+header:
+  teaser: /assets/article_images/22025-07-03-logicapps-control/blog-logicapps-eyecatch.png
 ---
 
 ## こんなこと書いてます
