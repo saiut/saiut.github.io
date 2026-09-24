@@ -1,6 +1,6 @@
 ---
 description: "新しいブログ記事の下書きを作成する"
-agent: "blog-manager"
+agent: "Techブログサポート"
 argument-hint: "記事のテーマを入力してください（例: Azure Front Door のキャッシュ設定）"
 ---
 

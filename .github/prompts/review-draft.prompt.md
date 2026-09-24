@@ -1,6 +1,6 @@
 ---
 description: "下書き記事のレビューと公開前チェックを行う"
-agent: "blog-manager"
+agent: "Techブログサポート"
 argument-hint: "レビューしたい下書きのファイル名（省略時は全下書きを一覧表示）"
 ---
 

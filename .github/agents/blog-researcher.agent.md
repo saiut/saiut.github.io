@@ -1,7 +1,7 @@
 ---
 name: "blog-researcher"
 description: "ブログ記事の技術的正確性を検証する。Azure 公式ドキュメント・最新情報と照合し、誤り・古い情報・不足を指摘する。Use when: 技術検証, ファクトチェック, 正確性, 裏取り, 公式ドキュメント確認, verify, fact-check, accuracy, technical review, research"
-tools: [read, search, web, mcp_azure_mcp_documentation/*]
+tools: [read, search, web, azure-mcp/documentation]
 user-invocable: false
 ---
 
